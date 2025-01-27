@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        // ターゲットJavaScriptの仕様レベル
+        "target": "ESNext",
+        // コンパイル時に使用するライブラリ
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        // JavaScriptファイルを型検査の対象にするか
+        "allowJs": false,
+        // ライブラリの型チェックをスキップ
+        "skipLibCheck": true,
+        // strictモード: 厳格な型チェックを有効化
+        "strict": true,
+        // ファイル名の大文字小文字の不一致をエラーに
+        "forceConsistentCasingInFileNames": true,
+        // コンパイル結果の .js ファイルを出力しない (CRA の場合は内部でやる)
+        "noEmit": true,
+        // ES Modules 互換設定
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        // React + TSX のJSX変換モード (React17以降なら "react-jsx" でもOK)
+        "jsx": "react-jsx",
+        // import 文での拡張子省略設定
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
+    },
+    // srcディレクトリ内の .ts / .tsx ファイルを対象に
+    "include": ["src"],
+    "exclude": ["node_modules"]
+}

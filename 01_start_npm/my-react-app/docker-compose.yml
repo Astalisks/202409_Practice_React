@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  frontend:
+    # frontend ディレクトリにある Dockerfile でイメージをビルド
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+
+    # ホスト側の 3000 ポート -> コンテナの 3000 ポート
+    ports:
+      - "3000:3000"
+
+    # ホットリロード用のボリューム設定
+    # 実際の運用では src や public 以外に dockerignore などで制御することも
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      # node_modules はホストに作らず、コンテナ内のディレクトリを空マウント
+      - /app/node_modules
+
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      # CI=true を指定すると一部対話的質問をスキップできる
+      - CI=true
+
+    tty: true
